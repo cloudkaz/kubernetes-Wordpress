@@ -1,0 +1,20 @@
+version: '2'
+services:
+ web:
+  build: .
+  ports:
+    - "80:80"
+  environment:
+   - DB_PASSWORD=Password123!
+   - DB_HOST=35.185.22.178
+   - DB_USER=wordpress
+   - DB_NAME=wpdb
+ db:
+  image: mysql:8.0.0
+  volumes:
+   - /tmp/db:/var/lib/mysql
+  environment:
+   - MYSQL_ROOT_PASSWORD=password123!
+   - MYSQL_DATABASE=wpdb
+   - MYSQL_USER=wordpress
+   - MYSQL_PASSWORD=password123!
